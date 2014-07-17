@@ -91,7 +91,7 @@ theta = zeros(3, 1);
 
 % Plot the convergence graph
 figure;
-plot(1:numel(J_history), J_history, '-b', 'LineWidth', 2);
+%plot(1:numel(J_history), J_history, '-b', 'LineWidth', 2);
 xlabel('Number of iterations');
 ylabel('Cost J');
 
@@ -133,10 +133,12 @@ fprintf('Solving with normal equations...\n');
 %
 
 %% Load Data
-data = csvread('ex1data2.txt');
-X = data(:, 1:2);
-y = data(:, 3);
+data = csvread('upn.processed.csv');
+X = data(:, 1:14);
+y = data(:, 15);
 m = length(y);
+
+
 
 % Add intercept term to X
 X = [ones(m, 1) X];
@@ -153,12 +155,14 @@ fprintf('\n');
 
 % Estimate the price of a 1650 sq-ft, 3 br house
 % ====================== YOUR CODE HERE ======================
-predict = [1, 1650, 3];
-price = predict*theta;
+predict = [1, 18, 3, 2, 1, 2, 1, 2, 27.7, 13.2, 8.3, 7, 1995, 56.862616377219, 60.650551901729];
+predict2 = [1, 26, 3, 2, 2, 2, 1, 2, 82, 43, 11, 15, 2007, 56.784978237413 60.650193243086];
 
+price = predict*theta
+price = predict2*theta
 
 % ============================================================
 
-fprintf(['Predicted price of a 1650 sq-ft, 3 br house ' ...
+fprintf(['Predicted price of a ' ...
          '(using normal equations):\n $%f\n'], price);
 
