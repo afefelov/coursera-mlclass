@@ -1,0 +1,72 @@
+Traceback (most recent call last):
+
+  File "/web/axium/lib/python2.6/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+
+  File "/web/axium/lib/python2.6/site-packages/django/contrib/admin/views/decorators.py", line 16, in _checklogin
+    return view_func(request, *args, **kwargs)
+
+  File "/web/axium/releases/current/axium/axiumsite/axium/admin_toolboxView.py", line 1260, in price_changes_detail
+    context['product_is_best'] = changes.changed_product_is_win
+
+  File "/web/axium/releases/current/axium/axiumsite/axium/models/base_abstracts/product_changes_queue.py", line 69, in changed_product_is_win
+    return self.product_id == self.best_item_after_change.id if self.best_item_after_change is not None else False
+
+  File "/web/axium/releases/current/axium/axiumsite/axium/models/supplier_product_changes_queue.py", line 31, in best_item_after_change
+    self._best_item_after_change = sorted_items[0]
+
+IndexError: list index out of range
+
+
+<WSGIRequest
+path:/admin/price_changes_detail/,
+GET:<QueryDict: {u'product_id': [u'19508']}>,
+POST:<QueryDict: {}>,
+COOKIES:{'csrftoken': 'rTkv3pQ9TPsUqMqhplckszV2k7N5dKib',
+ 'sessionid': '1caf6de100e8d6d85766f40b31af322f'},
+META:{'AUTH_TYPE': 'Basic',
+ 'CSRF_COOKIE': 'rTkv3pQ9TPsUqMqhplckszV2k7N5dKib',
+ 'DOCUMENT_ROOT': '/etc/apache2/htdocs',
+ 'GATEWAY_INTERFACE': 'CGI/1.1',
+ 'HTTP_ACCEPT': 'text/html, */*; q=0.01',
+ 'HTTP_ACCEPT_ENCODING': 'gzip, deflate',
+ 'HTTP_ACCEPT_LANGUAGE': 'ga-IE',
+ 'HTTP_CONNECTION': 'close',
+ 'HTTP_COOKIE': 'csrftoken=rTkv3pQ9TPsUqMqhplckszV2k7N5dKib; sessionid=1caf6de100e8d6d85766f40b31af322f',
+ 'HTTP_DNT': '1',
+ 'HTTP_HOST': 'axium.ie',
+ 'HTTP_REFERER': 'http://axium.ie/admin/price_changes_queue/',
+ 'HTTP_USER_AGENT': 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko',
+ 'HTTP_X_FORWARDED_FOR': '185.32.152.156',
+ 'HTTP_X_REAL_IP': '185.32.152.156',
+ 'HTTP_X_REQUESTED_WITH': 'XMLHttpRequest',
+ 'PATH_INFO': u'/admin/price_changes_detail/',
+ 'PATH_TRANSLATED': '/web/axium/releases/current/axium/axiumsite/wsgi/axium.wsgi/admin/price_changes_detail/',
+ 'QUERY_STRING': 'product_id=19508',
+ 'REMOTE_ADDR': '127.0.0.1',
+ 'REMOTE_PORT': '45300',
+ 'REMOTE_USER': 'su',
+ 'REQUEST_METHOD': 'GET',
+ 'REQUEST_URI': '/admin/price_changes_detail/?product_id=19508',
+ 'SCRIPT_FILENAME': '/web/axium/releases/current/axium/axiumsite/wsgi/axium.wsgi',
+ 'SCRIPT_NAME': u'',
+ 'SERVER_ADDR': '127.0.0.1',
+ 'SERVER_ADMIN': '[no address given]',
+ 'SERVER_NAME': 'axium.ie',
+ 'SERVER_PORT': '8080',
+ 'SERVER_PROTOCOL': 'HTTP/1.0',
+ 'SERVER_SIGNATURE': '<address>Apache/2.2.16 (Debian) Server at axium.ie Port 8080</address>\n',
+ 'SERVER_SOFTWARE': 'Apache/2.2.16 (Debian)',
+ 'mod_wsgi.application_group': 'axium-site',
+ 'mod_wsgi.callable_object': 'application',
+ 'mod_wsgi.handler_script': '',
+ 'mod_wsgi.input_chunked': '0',
+ 'mod_wsgi.listener_host': '127.0.0.1',
+ 'mod_wsgi.listener_port': '8080',
+ 'mod_wsgi.process_group': 'axium-site',
+ 'mod_wsgi.request_handler': 'wsgi-script',
+ 'mod_wsgi.script_reloading': '1',
+ 'mod_wsgi.version': (3, 3),
+ 'wsgi.errors': <mod_wsgi.Log object at 0xba87e368>,
+ 'wsgi.file_wrapper': <built-in method file_wrapper of mod_wsgi.Adapter object at 0xba997020>,
+ 'wsgi.input': <mod_wsgi.Input object at 0xba1bd3e0>,
